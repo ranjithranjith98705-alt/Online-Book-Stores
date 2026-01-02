@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Book Store</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* TOP FRAME */
+        #top {
+            height: 20vh;
+            background-color: rgb(175, 230, 173);
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* MAIN CONTAINER */
+        #main {
+            display: flex;
+            height: 80vh;
+        }
+
+        /* LEFT FRAME */
+        #left {
+            width: 20%;
+            background-color: #f0f0f0;
+            padding: 15px;
+        }
+
+        /* RIGHT FRAME */
+        #right {
+            width: 80%;
+            border: 1px solid #ccc;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .nav a {
+            margin: 0 5px;
+        }
+
+        .dept a {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- TOP FRAME -->
+<div id="top">
+    <h1>R.V.R & J.C College of Engineering</h1>
+    <h3>Online Book Store</h3>
+
+    <div class="nav">
+        <a onclick="loadPage('home')">Home</a> |
+        <a onclick="loadPage('login')">Login</a> |
+        <a onclick="loadPage('register')">Register</a> |
+        <a onclick="loadPage('catalogue')">Catalogue</a> |
+        <a onclick="loadPage('cart')">Cart</a>
+    </div>
+</div>
+
+<!-- LEFT + RIGHT FRAMES -->
+<div id="main">
+
+    <!-- LEFT FRAME -->
+    <div id="left" class="dept">
+        <h3>Departments</h3>
+        <a onclick="loadPage('csbs')">CSBS</a>
+        <a onclick="loadPage('cse')">CSE</a>
+        <a onclick="loadPage('ece')">ECE</a>
+        <a onclick="loadPage('eee')">EEE</a>
+    </div>
+
+    <!-- RIGHT FRAME -->
+    <div id="right">
+        <h2>Welcome to Online Book Store</h2>
+        <p>
+            This website provides textbooks for various engineering departments.
+            Select a department from the left menu to view books.
+        </p>
+    </div>
+
+</div>
+
+<script>
+function loadPage(page) {
+    let right = document.getElementById("right");
+
+    if (page === "home") {
+        right.innerHTML = `
+        <h2>Welcome to Online Book Store</h2>
+        <p>This website provides textbooks for engineering students.</p>`;
+    }
+    else if (page === "login") {
+        right.innerHTML = `
+        <h2>Login</h2>
+        Username: <input type="text"><br><br>
+        Password: <input type="password"><br><br>
+        <input type="submit" value="Login">`;
+    }
+    else if (page === "register") {
+        right.innerHTML = `
+        <h2>Register</h2>
+        Name: <input type="text"><br><br>
+        Email: <input type="email"><br><br>
+        Password: <input type="password"><br><br>
+        <input type="submit" value="Register">`;
+    }
+    else if (page === "catalogue") {
+        right.innerHTML = `
+        <h2>Catalogue</h2>
+        <p>Select a department from the left menu.</p>`;
+    }
+    else if (page === "cart") {
+        right.innerHTML = `
+        <h2>Cart</h2>
+        <p>Your cart is empty.</p>`;
+    }
+    else if (page === "csbs") {
+        right.innerHTML = `
+        <h2>CSBS Books</h2>
+        <ul>
+            <li>Business Analytics</li>
+            <li>Python Programming</li>
+            <li>Statistics</li>
+        </ul>`;
+    }
+    else if (page === "cse") {
+        right.innerHTML = `
+        <h2>CSE Books</h2>
+        <ul>
+            <li>Data Structures</li>
+            <li>Operating Systems</li>
+            <li>Computer Networks</li>
+        </ul>`;
+    }
+    else if (page === "ece") {
+        right.innerHTML = `
+        <h2>ECE Books</h2>
+        <ul>
+            <li>Digital Electronics</li>
+            <li>Signals & Systems</li>
+        </ul>`;
+    }
+    else if (page === "eee") {
+        right.innerHTML = `
+        <h2>EEE Books</h2>
+        <ul>
+            <li>Electrical Machines</li>
+            <li>Power Systems</li>
+        </ul>`;
+    }
+}
+</script>
+
+</body>
+</html>
